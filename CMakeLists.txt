@@ -11,6 +11,8 @@ set(SOURCE_FILES
         lib/error.c
         lib/wrapsock.c
         lib/wrappthread.c
-        lib/wrapunix.c)
+        lib/wrapunix.c
+        lib/readn.c
+        lib/writen.c)
 
 add_executable(unpv13e ${SOURCE_FILES})

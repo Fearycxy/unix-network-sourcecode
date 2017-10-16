@@ -1,5 +1,5 @@
 #include	"unp.h"
-
+/*确定主机字节序*/
 int
 main(int argc, char **argv)
 {
