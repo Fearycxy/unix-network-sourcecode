@@ -4,13 +4,11 @@ project(unpv13e)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
-        lib/unp.h
         config.h
-        lib/addrinfo.h
+        lib/unp.h
         intro/daytimetcpsrv.c
         lib/error.c
         lib/wrapsock.c
-        lib/wrappthread.c
         lib/wrapunix.c
         lib/readn.c
         lib/writen.c)

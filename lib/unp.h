@@ -289,7 +289,7 @@ void	 inet6_srcrt_print(void *);
 char   **my_addrs(int *);
 int		 readable_timeo(int, int);
 ssize_t	 readline(int, void *, size_t);
-ssize_t	 readn(int, void *, size_t);
+ssize_t	 readn(int, void *, size_t);//readn.c
 ssize_t	 read_fd(int, void *, size_t, int *);
 ssize_t	 recvfrom_flags(int, void *, size_t, int *, SA *, socklen_t *,
 		 struct unp_in_pktinfo *);
@@ -313,7 +313,7 @@ int		 udp_client(const char *, const char *, SA **, socklen_t *);
 int		 udp_connect(const char *, const char *);
 int		 udp_server(const char *, const char *, socklen_t *);
 int		 writable_timeo(int, int);
-ssize_t	 writen(int, const void *, size_t);
+ssize_t	 writen(int, const void *, size_t);//writen.c
 ssize_t	 write_fd(int, void *, size_t, int);
 
 #ifdef	MCAST
@@ -412,7 +412,7 @@ const char		*Inet_ntop(int, const void *, char *, size_t);
 void			 Inet_pton(int, const char *, void *);
 char			*If_indextoname(unsigned int, char *);
 unsigned int		 If_nametoindex(const char *);
-struct if_nameindex	*If_nameindex(void);
+struct if_nameindex	*If_nameindex(void);//if.h
 char   **My_addrs(int *);
 ssize_t	 Read_fd(int, void *, size_t, int *);
 int		 Readable_timeo(int, int);
@@ -433,33 +433,33 @@ ssize_t	 Write_fd(int, void *, size_t, int);
 int		 Writable_timeo(int, int);
 
 			/* prototypes for our Unix wrapper functions: see {Sec errors} */
-void	*Calloc(size_t, size_t);
-void	 Close(int);
-void	 Dup2(int, int);
-int		 Fcntl(int, int, int);
-void	 Gettimeofday(struct timeval *, void *);
-int		 Ioctl(int, int, void *);
-pid_t	 Fork(void);
-void	*Malloc(size_t);
-int	 Mkstemp(char *);
-void	*Mmap(void *, size_t, int, int, int, off_t);
-int		 Open(const char *, int, mode_t);
-void	 Pipe(int *fds);
-ssize_t	 Read(int, void *, size_t);
-void	 Sigaddset(sigset_t *, int);
-void	 Sigdelset(sigset_t *, int);
-void	 Sigemptyset(sigset_t *);
-void	 Sigfillset(sigset_t *);
-int		 Sigismember(const sigset_t *, int);
-void	 Sigpending(sigset_t *);
-void	 Sigprocmask(int, const sigset_t *, sigset_t *);
-char	*Strdup(const char *);
-long	 Sysconf(int);
-void	 Sysctl(int *, u_int, void *, size_t *, void *, size_t);
-void	 Unlink(const char *);
-pid_t	 Wait(int *);
-pid_t	 Waitpid(pid_t, int *, int);
-void	 Write(int, void *, size_t);
+void	*Calloc(size_t, size_t);//wrapunix.c
+void	 Close(int);//wrapunix.c
+void	 Dup2(int, int);//wrapunix.c
+int		 Fcntl(int, int, int);//wrapunix.c
+void	 Gettimeofday(struct timeval *, void *);//wrapunix.c
+int		 Ioctl(int, int, void *);//wrapunix.c
+pid_t	 Fork(void);//wrapunix.c
+void	*Malloc(size_t);//wrapunix.c
+int	 Mkstemp(char *);//wrapunix.c
+void	*Mmap(void *, size_t, int, int, int, off_t);//wrapunix.c
+int		 Open(const char *, int, mode_t);//wrapunix.c
+void	 Pipe(int *fds);//wrapunix.c
+ssize_t	 Read(int, void *, size_t);//wrapunix.c
+void	 Sigaddset(sigset_t *, int);//wrapunix.c
+void	 Sigdelset(sigset_t *, int);//wrapunix.c
+void	 Sigemptyset(sigset_t *);//wrapunix.c
+void	 Sigfillset(sigset_t *);//wrapunix.c
+int		 Sigismember(const sigset_t *, int);//wrapunix.c
+void	 Sigpending(sigset_t *);//wrapunix.c
+void	 Sigprocmask(int, const sigset_t *, sigset_t *);//wrapunix.c
+char	*Strdup(const char *);//wrapunix.c
+long	 Sysconf(int);//wrapunix.c
+void	 Sysctl(int *, u_int, void *, size_t *, void *, size_t);//wrapunix.c
+void	 Unlink(const char *);//wrapunix.c
+pid_t	 Wait(int *);//wrapunix.c
+pid_t	 Waitpid(pid_t, int *, int);//wrapunix.c
+void	 Write(int, void *, size_t);//wrapunix.c
 
 			/* prototypes for our stdio wrapper functions: see {Sec errors} */
 void	 Fclose(FILE *);
@@ -469,49 +469,49 @@ FILE	*Fopen(const char *, const char *);
 void	 Fputs(const char *, FILE *);
 
 			/* prototypes for our socket wrapper functions: see {Sec errors} */
-int		 Accept(int, SA *, socklen_t *);
-void	 Bind(int, const SA *, socklen_t);
-void	 Connect(int, const SA *, socklen_t);
-void	 Getpeername(int, SA *, socklen_t *);
-void	 Getsockname(int, SA *, socklen_t *);
-void	 Getsockopt(int, int, int, void *, socklen_t *);
+int		 Accept(int, SA *, socklen_t *);//wrapsock.c
+void	 Bind(int, const SA *, socklen_t);//wrapsock.c
+void	 Connect(int, const SA *, socklen_t);//wrapsock.c
+void	 Getpeername(int, SA *, socklen_t *);//wrapsock.c
+void	 Getsockname(int, SA *, socklen_t *);//wrapsock.c
+void	 Getsockopt(int, int, int, void *, socklen_t *);//wrapsock.c
 #ifdef	HAVE_INET6_RTH_INIT
-int		 Inet6_rth_space(int, int);
-void	*Inet6_rth_init(void *, socklen_t, int, int);
-void	 Inet6_rth_add(void *, const struct in6_addr *);
-void	 Inet6_rth_reverse(const void *, void *);
-int		 Inet6_rth_segments(const void *);
-struct in6_addr *Inet6_rth_getaddr(const void *, int);
+int		 Inet6_rth_space(int, int);//wrapsock.c
+void	*Inet6_rth_init(void *, socklen_t, int, int);//wrapsock.c
+void	 Inet6_rth_add(void *, const struct in6_addr *);//wrapsock.c
+void	 Inet6_rth_reverse(const void *, void *);//wrapsock.c
+int		 Inet6_rth_segments(const void *);//wrapsock.c
+struct in6_addr *Inet6_rth_getaddr(const void *, int);//wrapsock.c,in6.h
 #endif
 #ifdef	HAVE_KQUEUE
-int		 Kqueue(void);
+int		 Kqueue(void);//wrapsock.c
 int		 Kevent(int, const struct kevent *, int,
-				struct kevent *, int, const struct timespec *);
+				struct kevent *, int, const struct timespec *);//wrapsock.c
 #endif
-void	 Listen(int, int);
+void	 Listen(int, int);//wrapsock.c
 #ifdef	HAVE_POLL
-int		 Poll(struct pollfd *, unsigned long, int);
+int		 Poll(struct pollfd *, unsigned long, int);//wrapsock.c
 #endif
 ssize_t	 Readline(int, void *, size_t);
-ssize_t	 Readn(int, void *, size_t);
-ssize_t	 Recv(int, void *, size_t, int);
-ssize_t	 Recvfrom(int, void *, size_t, int, SA *, socklen_t *);
-ssize_t	 Recvmsg(int, struct msghdr *, int);
-int		 Select(int, fd_set *, fd_set *, fd_set *, struct timeval *);
-void	 Send(int, const void *, size_t, int);
-void	 Sendto(int, const void *, size_t, int, const SA *, socklen_t);
-void	 Sendmsg(int, const struct msghdr *, int);
-void	 Setsockopt(int, int, int, const void *, socklen_t);
-void	 Shutdown(int, int);
-int		 Sockatmark(int);
-int		 Socket(int, int, int);
-void	 Socketpair(int, int, int, int *);
-void	 Writen(int, void *, size_t);
+ssize_t	 Readn(int, void *, size_t);//readn.c
+ssize_t	 Recv(int, void *, size_t, int);//wrapsock.c
+ssize_t	 Recvfrom(int, void *, size_t, int, SA *, socklen_t *);//wrapsock.c
+ssize_t	 Recvmsg(int, struct msghdr *, int);//wrapsock.c
+int		 Select(int, fd_set *, fd_set *, fd_set *, struct timeval *);//wrapsock.c
+void	 Send(int, const void *, size_t, int);//wrapsock.c
+void	 Sendto(int, const void *, size_t, int, const SA *, socklen_t);//wrapsock.c
+void	 Sendmsg(int, const struct msghdr *, int);//wrapsock.c
+void	 Setsockopt(int, int, int, const void *, socklen_t);//wrapsock.c
+void	 Shutdown(int, int);//wrapsock.c
+int		 Sockatmark(int);//wrapsock.c
+int		 Socket(int, int, int);//wrapsock.c
+void	 Socketpair(int, int, int, int *);//wrapsock.c
+void	 Writen(int, void *, size_t);//writen.c
 
-void	 err_dump(const char *, ...);
-void	 err_msg(const char *, ...);
-void	 err_quit(const char *, ...);
-void	 err_ret(const char *, ...);
-void	 err_sys(const char *, ...);
+void	 err_dump(const char *, ...);//error.c
+void	 err_msg(const char *, ...);//error.c
+void	 err_quit(const char *, ...);//error.c
+void	 err_ret(const char *, ...);//error.c
+void	 err_sys(const char *, ...); //error.c
 
 #endif	/* __unp_h */
