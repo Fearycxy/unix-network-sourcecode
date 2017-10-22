@@ -418,7 +418,7 @@ ssize_t	 Read_fd(int, void *, size_t, int *);
 int		 Readable_timeo(int, int);
 ssize_t	 Recvfrom_flags(int, void *, size_t, int *, SA *, socklen_t *,
                            struct unp_in_pktinfo *);
-Sigfunc *Signal(int, Sigfunc *);
+Sigfunc *Signal(int, Sigfunc *);//signal.c
 Sigfunc *Signal_intr(int, Sigfunc *);
 int		 Sock_bind_wild(int, int);
 char	*Sock_ntop(const SA *, socklen_t);

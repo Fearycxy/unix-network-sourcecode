@@ -7,9 +7,10 @@ str_echo(int sockfd)
 	char		buf[MAXLINE];
 
 again:
-	while ( (n = read(sockfd, buf, MAXLINE)) > 0)
-		Writen(sockfd, buf, n);
-
+	while ( (n = read(sockfd, buf, MAXLINE)) > 0) {
+        Fputs(buf, stdout);
+        Writen(sockfd, buf, n);
+    }
 	if (n < 0 && errno == EINTR)
 		goto again;
 	else if (n < 0)
