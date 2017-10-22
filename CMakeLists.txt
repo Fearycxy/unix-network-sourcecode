@@ -15,6 +15,7 @@ set(SOURCE_FILES
         lib/wrapunix.c
         lib/wrapstdio.c
         lib/readn.c
-        lib/writen.c)
+        lib/writen.c
+        select/strcliselect02.c)
 
 add_executable(unpv13e ${SOURCE_FILES})
